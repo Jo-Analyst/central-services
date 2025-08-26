@@ -142,7 +142,6 @@
     <Compile Include="Views\Service\FrmCustomerService.Designer.cs">
       <DependentUpon>FrmCustomerService.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Service\FrmService.cs" />
     <Compile Include="Views\Setting\FrmBackupAndRestore.cs">
       <SubType>Form</SubType>
     </Compile>
