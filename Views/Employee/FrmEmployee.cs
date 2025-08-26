@@ -6,24 +6,24 @@ using System.Windows.Forms;
 
 namespace Interface
 {
-    public partial class FrmUsers : Form
+    public partial class FrmEmployee : Form
     {
 
         int page = 1, pageMaximum = 1;
 
-        public FrmUsers()
+        public FrmEmployee()
         {
             InitializeComponent();
         }
 
 
-        private void btnNewUser_Click(object sender, EventArgs e)
+        private void btnNewEmployee_Click(object sender, EventArgs e)
         {
-            FrmSaveUser frmSaveUser = new FrmSaveUser();
-            frmSaveUser.ShowDialog();
-            if (frmSaveUser.isSaved)
+            FrmSaveEmployee frmSaveEmployee = new FrmSaveEmployee();
+            frmSaveEmployee.ShowDialog();
+            if (frmSaveEmployee.isSaved)
             {
-                FrmUsers_Load(sender, e);
+                FrmEmployees_Load(sender, e);
                 LoadEvents();
             }
         }
@@ -46,7 +46,7 @@ namespace Interface
             {
                 EnabledBtnArrowLeft();
             }
-            LoadUsers();
+            LoadEmployees();
         }
 
         private void btnArrowRight_Click(object sender, EventArgs e)
@@ -73,7 +73,7 @@ namespace Interface
             }
 
             EnabledBtnArrowLeft();
-            LoadUsers();
+            LoadEmployees();
         }
 
         private void DisabledBtnArrowLeft()
@@ -100,7 +100,7 @@ namespace Interface
             btnArrowRight.Image = Resources.right_arrow_white;
         }
 
-        private void FrmUsers_Load(object sender, EventArgs e)
+        private void FrmEmployees_Load(object sender, EventArgs e)
         {
             cbPage.Text = "1";
             cbRows.Text = "10";
@@ -112,14 +112,14 @@ namespace Interface
         private void CheckNumberOfPages(int numberRows)
         {
             PageData.quantityRowsSelected = numberRows;
-            pageMaximum = string.IsNullOrWhiteSpace(txtName.Text) ? PageData.SetPageQuantityUsers() : PageData.SetPageQuantityUsersByName(txtName.Text);
+            pageMaximum = string.IsNullOrWhiteSpace(txtName.Text) ? PageData.SetPageQuantityEmployees() : PageData.SetPageQuantityEmployeesByName(txtName.Text);
 
             if (pageMaximum > 1)
                 EnabledBtnArrowRight();
 
         }
 
-        private void LoadUsers()
+        private void LoadEmployees()
         {
             try
             {
@@ -128,23 +128,23 @@ namespace Interface
                 int quantRows = int.Parse(cbRows.Text);
                 int pageSelected = (page - 1) * quantRows;
 
-                DataTable dtUsers = string.IsNullOrWhiteSpace(txtName.Text) ? User.FindAll(pageSelected, quantRows) : User.FindByName(txtName.Text.Trim(), pageSelected, quantRows);
+                DataTable dtEmployees = string.IsNullOrWhiteSpace(txtName.Text) ? Employee.FindAll(pageSelected, quantRows) : Employee.FindByName(txtName.Text.Trim(), pageSelected, quantRows);
 
-                foreach (DataRow user in dtUsers.Rows)
+                foreach (DataRow Employee in dtEmployees.Rows)
                 {
                     int index = dgvUsers.Rows.Add();
                     dgvUsers.Rows[index].Cells["ColADD"].Value = Resources.add_post;
                     dgvUsers.Rows[index].Cells["ColEdit"].Value = Resources.user_avatar;
                     dgvUsers.Rows[index].Cells["ColDelete"].Value = Resources.delete;
-                    dgvUsers.Rows[index].Cells["ColId"].Value = user["id"].ToString();
-                    dgvUsers.Rows[index].Cells["ColName"].Value = user["name"].ToString();
-                    dgvUsers.Rows[index].Cells["ColCPF"].Value = string.IsNullOrEmpty(user["CPF"].ToString()) ? "" : Security.Dry(user["CPF"].ToString());
-                    dgvUsers.Rows[index].Cells["ColAddress"].Value = user["Address"].ToString();
-                    dgvUsers.Rows[index].Cells["ColPhone"].Value = user["phone"].ToString();
+                    dgvUsers.Rows[index].Cells["ColId"].Value = Employee["id"].ToString();
+                    dgvUsers.Rows[index].Cells["ColName"].Value = Employee["name"].ToString();
+                    dgvUsers.Rows[index].Cells["ColCPF"].Value = string.IsNullOrEmpty(Employee["CPF"].ToString()) ? "" : Security.Dry(Employee["CPF"].ToString());
+                    dgvUsers.Rows[index].Cells["ColAddress"].Value = Employee["Address"].ToString();
+                    dgvUsers.Rows[index].Cells["ColPhone"].Value = Employee["phone"].ToString();
                     dgvUsers.Rows[index].Height = 45;
                 }
 
-                UpdateUserDescription();
+                UpdateEmployeeDescription();
             }
             catch (Exception)
             {
@@ -152,9 +152,9 @@ namespace Interface
             }
         }
 
-        private void UpdateUserDescription()
+        private void UpdateEmployeeDescription()
         {
-            lblDescriptionRow.Text = $"Exibindo {dgvUsers.Rows.Count} de {PageData.quantity} usuários cadastrados";
+            lblDescriptionRow.Text = $"Exibindo {dgvUsers.Rows.Count} de {PageData.quantity} Funcionários cadastrados";
         }
 
         private void UpdateComboBoxItems()
@@ -168,10 +168,10 @@ namespace Interface
             cbPage.Text = (page > pageMaximum ? pageMaximum : page).ToString();
         }
 
-        private void FrmUsers_KeyDown(object sender, KeyEventArgs e)
+        private void FrmEmployees_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.N)
-                btnNewUser_Click(sender, e);
+                btnNewEmployee_Click(sender, e);
             else if (e.Control && e.KeyCode == Keys.Right && btnArrowRight.Enabled) btnArrowRight_Click(sender, e);
             else if (e.Control && e.KeyCode == Keys.Left && btnArrowLeft.Enabled) btnArrowLeft_Click(sender, e);
         }
@@ -180,8 +180,8 @@ namespace Interface
         {
             CheckNumberOfPages(int.Parse(cbRows.Text));
             UpdateComboBoxItems();
-            LoadUsers();
-            UpdateUserDescription();
+            LoadEmployees();
+            UpdateEmployeeDescription();
         }
 
         private void cbRows_SelectedIndexChanged(object sender, EventArgs e)
@@ -199,7 +199,7 @@ namespace Interface
             page = int.Parse(cbPage.Text);
             if (pageMaximum == 1) return;
 
-            LoadUsers();
+            LoadEmployees();
 
             if (page == 1)
             {
@@ -245,20 +245,20 @@ namespace Interface
             else if (dgvUsers.CurrentCell.ColumnIndex == 1)
             {
 
-                FrmSaveUser frmUser = new FrmSaveUser(id, name, CPF, phone, address);
-                frmUser.ShowDialog();
-                if (frmUser.isSaved)
+                FrmSaveEmployee frmEmployee = new FrmSaveEmployee(id, name, CPF, phone, address);
+                frmEmployee.ShowDialog();
+                if (frmEmployee.isSaved)
                     isConfirmed = true;
             }
             else if (dgvUsers.CurrentCell.ColumnIndex == 2)
             {
-                DialogResult dr = MessageBox.Show($"Deseja mesmo excluir o(a) usuário(a) {name} do sistema?", "Central Serviços", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                DialogResult dr = MessageBox.Show($"Deseja mesmo excluir o(a) Funcionário(a) {name} do sistema?", "Central Serviços", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 
                 if (dr == DialogResult.Yes)
                 {
                     try
                     {
-                        User.Delete(id);
+                        Employee.Delete(id);
                         isConfirmed = true;
                     }
                     catch (Exception)

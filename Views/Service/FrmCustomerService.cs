@@ -10,13 +10,13 @@ namespace Interface
     public partial class FrmCustomerService : Form
     {
 
-        int userId, page = 1, pageMaximum = 1, serviceId;
+        int employeeId, page = 1, pageMaximum = 1, serviceId;
         bool addTime = bool.Parse(Settings.Default["addTime"].ToString());
 
         public FrmCustomerService(int userId, string name)
         {
             InitializeComponent();
-            this.userId = userId;
+            this.employeeId = userId;
             lblName.Text = name;
         }
 
@@ -95,7 +95,7 @@ namespace Interface
                 service.timeOfService = addTime ? dtTimeOfService.Value.ToString("HH:mm:ss") : string.Empty;
                 service.departureTime = cbAddTimeExit.Checked ? dtDepartureTime.Value.ToString("HH:mm:ss") : string.Empty;
                 service.sector = cbSectors.Text.Trim();
-                service.userId = userId;
+                service.employeesId = employeeId;
 
                 service.Save();
                 loadSectors();
@@ -119,7 +119,7 @@ namespace Interface
                 int quantRows = int.Parse(cbRows.Text);
                 int pageSelected = (page - 1) * quantRows;
 
-                DataTable services = Service.FindByUserId(userId, pageSelected, quantRows);
+                DataTable services = Service.FindByEmployeeId(employeeId, pageSelected, quantRows);
 
                 foreach (DataRow dr in services.Rows)
                 {
@@ -253,7 +253,7 @@ namespace Interface
         private void CheckNumberOfPages(int numberRows)
         {
             PageData.quantityRowsSelected = numberRows;
-            pageMaximum = PageData.SetPageQuantityServices(userId);
+            pageMaximum = PageData.SetPageQuantityServices(employeeId);
             if (pageMaximum > 1)
                 EnabledBtnArrowRight();
 

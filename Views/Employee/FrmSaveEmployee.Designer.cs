@@ -1,6 +1,6 @@
 ﻿namespace Interface
 {
-    partial class FrmSaveUser
+    partial class FrmSaveEmployee
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSaveUser));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSaveEmployee));
             this.mkPhone = new System.Windows.Forms.MaskedTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
@@ -159,7 +159,7 @@
             this.MinimizeBox = false;
             this.Name = "FrmSaveUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Usuário";
+            this.Text = "Funcionário";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmSaveUser_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();

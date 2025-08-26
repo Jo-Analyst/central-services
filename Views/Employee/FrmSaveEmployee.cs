@@ -4,18 +4,18 @@ using System.Windows.Forms;
 
 namespace Interface
 {
-    public partial class FrmSaveUser : Form
+    public partial class FrmSaveEmployee : Form
     {
 
         public bool isSaved { get; set; }
         bool isEditMode;
         int userId;
-        public FrmSaveUser()
+        public FrmSaveEmployee()
         {
             InitializeComponent();
         }
 
-        public FrmSaveUser(int id, string name, string cpf, string phone, string address)
+        public FrmSaveEmployee(int id, string name, string cpf, string phone, string address)
         {
             InitializeComponent();
             userId = id;
@@ -36,7 +36,7 @@ namespace Interface
 
                 if (string.IsNullOrWhiteSpace(txtName.Text))
                 {
-                    MessageBox.Show("Insira o nome do Usuário", "CENTRAL DE ATENDIMENTOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Insira o nome do Funcionário", "CENTRAL DE ATENDIMENTOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
 
@@ -48,7 +48,7 @@ namespace Interface
                         return;
                     }
 
-                    else if (User.FindByCpfForUser(Security.Cry(mkCPF.Text), userId).Rows.Count > 0)
+                    else if (Employee.FindByCpfForEmployee(Security.Cry(mkCPF.Text), userId).Rows.Count > 0)
                     {
                         MessageBox.Show("Este CPF já está cadastrado", "CENTRAL DE ATENDIMENTOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
@@ -56,7 +56,7 @@ namespace Interface
                 }
 
 
-                int lastId = new User()
+                int lastId = new Employee()
                 {
                     id = userId,
                     name = txtName.Text.Trim(),
@@ -77,7 +77,7 @@ namespace Interface
             }
             catch (Exception)
             {
-                MessageBox.Show("Houve um erro no sistema ao cadastrar o usuário", "Notificação de aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Houve um erro no sistema ao cadastrar o Funcionário", "Notificação de aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -133,7 +133,7 @@
             // ColNameUser
             // 
             this.ColNameUser.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColNameUser.HeaderText = "Usuário(a)";
+            this.ColNameUser.HeaderText = "Funcionário(a)";
             this.ColNameUser.Name = "ColNameUser";
             this.ColNameUser.ReadOnly = true;
             this.ColNameUser.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;

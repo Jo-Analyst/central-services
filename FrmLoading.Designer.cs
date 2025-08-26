@@ -69,7 +69,8 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(564, 53);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Central de Atendimentos";
+            this.label2.Text = "Banco de Folgas";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lkClose
             // 

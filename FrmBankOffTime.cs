@@ -2,20 +2,20 @@
 
 namespace Interface
 {
-    public partial class FrmCentralService : Form
+    public partial class FrmBankOffTime : Form
     {
-        public FrmCentralService()
+        public FrmBankOffTime()
         {
             InitializeComponent();
         }
 
-        private void usuárioToolStripMenuItem_Click(object sender, System.EventArgs e)
+        private void FuncionárioToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            FrmUsers frmUsers = new FrmUsers();
-            frmUsers.ShowDialog();
+            FrmEmployee frnEmploees = new FrmEmployee();
+            frnEmploees.ShowDialog();
         }
 
-        private void FrmCentralService_FormClosed(object sender, FormClosedEventArgs e)
+        private void FrmBankOffTime_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
