@@ -47,12 +47,12 @@ namespace Interface
            
             else if (addTime && cbAddTimeExit.Checked)
             {
-                if (dtCheckInTime.Value > dtCheckOutTime.Value)
+                if (dtEntryTime.Value > dtDepartureTime.Value)
                 {
                     MessageBox.Show("A hora de saída não pode ser menor que a hora do atendimento", "BANCO DE HORAS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
-                else if (dtCheckInTime.Value == dtCheckOutTime.Value)
+                else if (dtEntryTime.Value == dtDepartureTime.Value)
                 {
                     MessageBox.Show("A hora de saída não pode ser igual a hora do atendimento", "BANCO DE HORAS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
@@ -65,9 +65,13 @@ namespace Interface
             {
                 service.id = serviceId;
                 service.description = rtDescription.Text.Trim();
-                service.dateService = dtDate.Value;
-                service.timeOfService = addTime ? dtCheckInTime.Value.ToString("HH:mm:ss") : string.Empty;
-                service.departureTime = cbAddTimeExit.Checked ? dtCheckOutTime.Value.ToString("HH:mm:ss") : string.Empty;
+                service.date = dtDate.Value;
+                service.departureTime = dtDepartureTime.Value;
+                service.entryTime = dtEntryTime.Value;
+                service.numberOfOvertimeHours = 0;
+                service.abatementDate = dtAbatementDate.Value;
+                service.dayOffCompleted = false;
+                service.numberOfHoursTaken = int.Parse(ndNumberOfHoursTaken.Value.ToString());
                 service.employeesId = employeeId;
 
                 service.Save();
@@ -126,8 +130,8 @@ namespace Interface
                 serviceId = int.Parse(dgvHistory.CurrentRow.Cells["ColId"].Value.ToString());
                 rtDescription.Text = dgvHistory.CurrentRow.Cells["ColDescription"].Value.ToString();
                 dtDate.Value = DateTime.Parse(dgvHistory.CurrentRow.Cells["ColDateService"].Value.ToString());
-                dtCheckInTime.Value = dgvHistory.CurrentRow.Cells["ColTimeOfService"].Value.ToString() != "---" ? DateTime.Parse(dgvHistory.CurrentRow.Cells["ColTimeOfService"].Value.ToString()) : DateTime.Now;
-                dtCheckOutTime.Value = dgvHistory.CurrentRow.Cells["ColDepartureTime"].Value.ToString() != "---" ? DateTime.Parse(dgvHistory.CurrentRow.Cells["ColDepartureTime"].Value.ToString()) : DateTime.Now;
+                dtEntryTime.Value = dgvHistory.CurrentRow.Cells["ColTimeOfService"].Value.ToString() != "---" ? DateTime.Parse(dgvHistory.CurrentRow.Cells["ColTimeOfService"].Value.ToString()) : DateTime.Now;
+                dtDepartureTime.Value = dgvHistory.CurrentRow.Cells["ColDepartureTime"].Value.ToString() != "---" ? DateTime.Parse(dgvHistory.CurrentRow.Cells["ColDepartureTime"].Value.ToString()) : DateTime.Now;
                 btnSave.Text = "Editar";
                 lkCancel.Visible = true;
                 cbAddTimeExit.Enabled = true;
@@ -140,7 +144,7 @@ namespace Interface
                 }
                 else
                 {
-                    dtCheckOutTime.Enabled = true;
+                    dtDepartureTime.Enabled = true;
                     cbAddTimeExit.Checked = true;
                 }
                   
@@ -298,12 +302,12 @@ namespace Interface
             btnSave.Text = "Salvar";
             rtDescription.Clear();
             dtDate.Value = DateTime.Now;
-            dtCheckInTime.Value = DateTime.Now;
-            dtCheckOutTime.Value = DateTime.Now;
+            dtEntryTime.Value = DateTime.Now;
+            dtDepartureTime.Value = DateTime.Now;
             lkCancel.Visible = false;
             cbAddTimeExit.Checked = false;
             cbAddTimeExit.Enabled = false;
-            dtCheckOutTime.Enabled = false;
+            dtDepartureTime.Enabled = false;
         }
 
         private void FrmCustomerService_KeyDown(object sender, KeyEventArgs e)
@@ -323,11 +327,11 @@ namespace Interface
         {
             if (cbAddTimeExit.Checked)
             {
-                dtCheckOutTime.Enabled = true;
+                dtDepartureTime.Enabled = true;
             }
             else
             {
-                dtCheckOutTime.Enabled = false;
+                dtDepartureTime.Enabled = false;
             }
         }
 

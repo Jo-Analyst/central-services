@@ -54,16 +54,16 @@
             this.rtDescription = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dtCheckInTime = new System.Windows.Forms.DateTimePicker();
+            this.dtEntryTime = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.dtCheckOutTime = new System.Windows.Forms.DateTimePicker();
+            this.dtDepartureTime = new System.Windows.Forms.DateTimePicker();
             this.dtDate = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
+            this.ndNumberOfHoursTaken = new System.Windows.Forms.NumericUpDown();
+            this.dtAbatementDate = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
             this.ColEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.ColDelete = new System.Windows.Forms.DataGridViewImageColumn();
@@ -75,12 +75,13 @@
             this.ColDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColAbatementData = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColNumberOfHoursTaken = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDayOffCompleted = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBox5.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ndNumberOfHoursTaken)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
@@ -303,7 +304,8 @@
             this.ColNumberOfOvertimeHours,
             this.ColDescription,
             this.ColAbatementData,
-            this.ColNumberOfHoursTaken});
+            this.ColNumberOfHoursTaken,
+            this.ColDayOffCompleted});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -386,10 +388,10 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox1.Controls.Add(this.dtCheckInTime);
+            this.groupBox1.Controls.Add(this.dtEntryTime);
             this.groupBox1.Controls.Add(this.cbAddTimeExit);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.dtCheckOutTime);
+            this.groupBox1.Controls.Add(this.dtDepartureTime);
             this.groupBox1.Controls.Add(this.dtDate);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label7);
@@ -402,17 +404,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Horas Extras";
             // 
-            // dtCheckInTime
+            // dtEntryTime
             // 
-            this.dtCheckInTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.dtCheckInTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtCheckInTime.Location = new System.Drawing.Point(140, 59);
-            this.dtCheckInTime.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dtCheckInTime.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.dtCheckInTime.Name = "dtCheckInTime";
-            this.dtCheckInTime.ShowUpDown = true;
-            this.dtCheckInTime.Size = new System.Drawing.Size(118, 26);
-            this.dtCheckInTime.TabIndex = 2;
+            this.dtEntryTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dtEntryTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtEntryTime.Location = new System.Drawing.Point(140, 59);
+            this.dtEntryTime.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtEntryTime.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.dtEntryTime.Name = "dtEntryTime";
+            this.dtEntryTime.ShowUpDown = true;
+            this.dtEntryTime.Size = new System.Drawing.Size(118, 26);
+            this.dtEntryTime.TabIndex = 2;
             // 
             // label4
             // 
@@ -426,17 +428,17 @@
             this.label4.TabIndex = 78;
             this.label4.Text = "Hora da Entrada";
             // 
-            // dtCheckOutTime
+            // dtDepartureTime
             // 
-            this.dtCheckOutTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.dtCheckOutTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtCheckOutTime.Location = new System.Drawing.Point(264, 59);
-            this.dtCheckOutTime.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dtCheckOutTime.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.dtCheckOutTime.Name = "dtCheckOutTime";
-            this.dtCheckOutTime.ShowUpDown = true;
-            this.dtCheckOutTime.Size = new System.Drawing.Size(127, 26);
-            this.dtCheckOutTime.TabIndex = 4;
+            this.dtDepartureTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dtDepartureTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtDepartureTime.Location = new System.Drawing.Point(264, 59);
+            this.dtDepartureTime.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtDepartureTime.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.dtDepartureTime.Name = "dtDepartureTime";
+            this.dtDepartureTime.ShowUpDown = true;
+            this.dtDepartureTime.Size = new System.Drawing.Size(127, 26);
+            this.dtDepartureTime.TabIndex = 4;
             // 
             // dtDate
             // 
@@ -477,8 +479,8 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.numericUpDown1);
-            this.groupBox2.Controls.Add(this.dateTimePicker6);
+            this.groupBox2.Controls.Add(this.ndNumberOfHoursTaken);
+            this.groupBox2.Controls.Add(this.dtAbatementDate);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox2.ForeColor = System.Drawing.Color.White;
@@ -501,25 +503,25 @@
             this.label1.TabIndex = 78;
             this.label1.Text = "Quantidade";
             // 
-            // numericUpDown1
+            // ndNumberOfHoursTaken
             // 
-            this.numericUpDown1.Enabled = false;
-            this.numericUpDown1.Location = new System.Drawing.Point(139, 59);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(111, 26);
-            this.numericUpDown1.TabIndex = 77;
+            this.ndNumberOfHoursTaken.Enabled = false;
+            this.ndNumberOfHoursTaken.Location = new System.Drawing.Point(139, 59);
+            this.ndNumberOfHoursTaken.Name = "ndNumberOfHoursTaken";
+            this.ndNumberOfHoursTaken.Size = new System.Drawing.Size(111, 26);
+            this.ndNumberOfHoursTaken.TabIndex = 77;
             // 
-            // dateTimePicker6
+            // dtAbatementDate
             // 
-            this.dateTimePicker6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.dateTimePicker6.Enabled = false;
-            this.dateTimePicker6.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker6.Location = new System.Drawing.Point(17, 59);
-            this.dateTimePicker6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dateTimePicker6.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.dateTimePicker6.Name = "dateTimePicker6";
-            this.dateTimePicker6.Size = new System.Drawing.Size(115, 26);
-            this.dateTimePicker6.TabIndex = 5;
+            this.dtAbatementDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dtAbatementDate.Enabled = false;
+            this.dtAbatementDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtAbatementDate.Location = new System.Drawing.Point(17, 59);
+            this.dtAbatementDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtAbatementDate.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.dtAbatementDate.Name = "dtAbatementDate";
+            this.dtAbatementDate.Size = new System.Drawing.Size(115, 26);
+            this.dtAbatementDate.TabIndex = 5;
             // 
             // label11
             // 
@@ -624,6 +626,14 @@
             this.ColNumberOfHoursTaken.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.ColNumberOfHoursTaken.Width = 212;
             // 
+            // ColDayOffCompleted
+            // 
+            this.ColDayOffCompleted.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColDayOffCompleted.HeaderText = "Folga concluída";
+            this.ColDayOffCompleted.Name = "ColDayOffCompleted";
+            this.ColDayOffCompleted.ReadOnly = true;
+            this.ColDayOffCompleted.Width = 123;
+            // 
             // FrmCustomerService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -660,7 +670,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ndNumberOfHoursTaken)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -687,16 +697,16 @@
         private System.Windows.Forms.RichTextBox rtDescription;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DateTimePicker dtCheckInTime;
+        private System.Windows.Forms.DateTimePicker dtEntryTime;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dtCheckOutTime;
+        private System.Windows.Forms.DateTimePicker dtDepartureTime;
         private System.Windows.Forms.DateTimePicker dtDate;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker6;
+        private System.Windows.Forms.NumericUpDown ndNumberOfHoursTaken;
+        private System.Windows.Forms.DateTimePicker dtAbatementDate;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridViewImageColumn ColEdit;
         private System.Windows.Forms.DataGridViewImageColumn ColDelete;
@@ -708,5 +718,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColAbatementData;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColNumberOfHoursTaken;
+        private System.Windows.Forms.DataGridViewImageColumn ColDayOffCompleted;
     }
 }
