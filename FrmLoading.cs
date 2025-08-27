@@ -29,7 +29,7 @@ namespace Interface
                         DB.CreateTables();
                     }
 
-                    new FrmBankOffTime().ShowDialog();
+                    new FrmCentralService().ShowDialog();
                 }
                 catch(Exception ex)
                 {

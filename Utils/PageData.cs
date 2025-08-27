@@ -9,16 +9,16 @@ namespace Interface
 
         static public double quantity;
 
-        static public int SetPageQuantityEmployees()
+        static public int SetPageQuantityUsers()
         {
-            quantity = Employee.CountQuantityEmployees();
+            quantity = User.CountQuantityUsers();
             return CalculateNumberOfPage();
         }
 
 
-        static public int SetPageQuantityServices(int EmployeeId = 0)
+        static public int SetPageQuantityServices(int userId = 0)
         {
-            quantity = Service.CountQuantityServicesByEmployeeId(EmployeeId);
+            quantity = Service.CountQuantityServicesByUserId(userId);
             return CalculateNumberOfPage();
         }
 
@@ -41,9 +41,9 @@ namespace Interface
         //    return CalculateNumberOfPage();
         //}
 
-        static public int SetPageQuantityEmployeesByName(string name)
+        static public int SetPageQuantityUsersByName(string name)
         {
-            quantity = Employee.CountQuantityEmployeesByName(name);
+            quantity = User.CountQuantityUsersByName(name);
             return CalculateNumberOfPage();
         }
 

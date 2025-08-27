@@ -1,6 +1,6 @@
 ﻿namespace Interface
 {
-    partial class FrmEmployee
+    partial class FrmUsers
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEmployee));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUsers));
             this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.ColADD = new System.Windows.Forms.DataGridViewImageColumn();
             this.ColEdit = new System.Windows.Forms.DataGridViewImageColumn();
@@ -355,11 +355,11 @@
             this.btnNewUser.TabIndex = 0;
             this.btnNewUser.TabStop = false;
             this.btnNewUser.Text = "Novo";
-            this.toolTip.SetToolTip(this.btnNewUser, "Cadastrar novo Funcionário - {CTRL + N]");
+            this.toolTip.SetToolTip(this.btnNewUser, "Cadastrar novo usuário - {CTRL + N]");
             this.btnNewUser.UseVisualStyleBackColor = true;
-            this.btnNewUser.Click += new System.EventHandler(this.btnNewEmployee_Click);
+            this.btnNewUser.Click += new System.EventHandler(this.btnNewUser_Click);
             // 
-            // frnEmploees
+            // FrmUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -377,12 +377,12 @@
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.MinimizeBox = false;
-            this.Name = "frnEmploees";
+            this.Name = "FrmUsers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Funcionários";
+            this.Text = "Usuários";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.FrmEmployees_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmEmployees_KeyDown);
+            this.Load += new System.EventHandler(this.FrmUsers_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmUsers_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

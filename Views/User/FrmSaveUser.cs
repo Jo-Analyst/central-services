@@ -4,18 +4,18 @@ using System.Windows.Forms;
 
 namespace Interface
 {
-    public partial class FrmSaveEmployee : Form
+    public partial class FrmSaveUser : Form
     {
 
         public bool isSaved { get; set; }
         bool isEditMode;
         int userId;
-        public FrmSaveEmployee()
+        public FrmSaveUser()
         {
             InitializeComponent();
         }
 
-        public FrmSaveEmployee(int id, string name, string cpf, string phone, string address)
+        public FrmSaveUser(int id, string name, string cpf, string phone, string address)
         {
             InitializeComponent();
             userId = id;
@@ -36,7 +36,7 @@ namespace Interface
 
                 if (string.IsNullOrWhiteSpace(txtName.Text))
                 {
-                    MessageBox.Show("Insira o nome do Funcionário", "BANCO DE HORAS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Insira o nome do Usuário", "CENTRAL DE ATENDIMENTOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
 
@@ -44,19 +44,19 @@ namespace Interface
                 {
                     if (!CPF.Validate(mkCPF.Text))
                     {
-                        MessageBox.Show("CPF inválido", "BANCO DE HORAS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("CPF inválido", "CENTRAL DE ATENDIMENTOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
 
-                    else if (Employee.FindByCpfForEmployee(Security.Cry(mkCPF.Text), userId).Rows.Count > 0)
+                    else if (User.FindByCpfForUser(Security.Cry(mkCPF.Text), userId).Rows.Count > 0)
                     {
-                        MessageBox.Show("Este CPF já está cadastrado", "BANCO DE HORAS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("Este CPF já está cadastrado", "CENTRAL DE ATENDIMENTOS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
                 }
 
 
-                int lastId = new Employee()
+                int lastId = new User()
                 {
                     id = userId,
                     name = txtName.Text.Trim(),
@@ -77,7 +77,7 @@ namespace Interface
             }
             catch (Exception)
             {
-                MessageBox.Show("Houve um erro no sistema ao cadastrar o Funcionário", "Notificação de aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Houve um erro no sistema ao cadastrar o usuário", "Notificação de aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

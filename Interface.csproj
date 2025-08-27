@@ -58,14 +58,9 @@
   <PropertyGroup>
     <ApplicationIcon>promoca-social-sem-fundo.ico</ApplicationIcon>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>
-    </StartupObject>
-  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DataBase, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\time-off-bank\DataBase\bin\Debug\DataBase.dll</HintPath>
+    <Reference Include="DataBase">
+      <HintPath>DataBase\bin\Debug\DataBase.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
@@ -98,11 +93,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmBankOffTime.cs">
+    <Compile Include="FrmCentralService.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmBankOffTime.Designer.cs">
-      <DependentUpon>FrmBankOffTime.cs</DependentUpon>
+    <Compile Include="FrmCentralService.Designer.cs">
+      <DependentUpon>FrmCentralService.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -142,6 +137,7 @@
     <Compile Include="Views\Service\FrmCustomerService.Designer.cs">
       <DependentUpon>FrmCustomerService.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Service\FrmService.cs" />
     <Compile Include="Views\Setting\FrmBackupAndRestore.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,20 +150,20 @@
     <Compile Include="Views\Setting\FrmSetting.Designer.cs">
       <DependentUpon>FrmSetting.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Employee\FrmSaveEmployee.cs">
+    <Compile Include="Views\User\FrmSaveUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Employee\FrmSaveEmployee.Designer.cs">
-      <DependentUpon>FrmSaveEmployee.cs</DependentUpon>
+    <Compile Include="Views\User\FrmSaveUser.Designer.cs">
+      <DependentUpon>FrmSaveUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Employee\FrmEmployee.cs">
+    <Compile Include="Views\User\FrmUsers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Employee\FrmEmployee.Designer.cs">
-      <DependentUpon>FrmEmployee.cs</DependentUpon>
+    <Compile Include="Views\User\FrmUsers.Designer.cs">
+      <DependentUpon>FrmUsers.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FrmBankOffTime.resx">
-      <DependentUpon>FrmBankOffTime.cs</DependentUpon>
+    <EmbeddedResource Include="FrmCentralService.resx">
+      <DependentUpon>FrmCentralService.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -199,11 +195,11 @@
     <EmbeddedResource Include="Views\Setting\FrmSetting.resx">
       <DependentUpon>FrmSetting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Employee\FrmSaveEmployee.resx">
-      <DependentUpon>FrmSaveEmployee.cs</DependentUpon>
+    <EmbeddedResource Include="Views\User\FrmSaveUser.resx">
+      <DependentUpon>FrmSaveUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Employee\FrmEmployee.resx">
-      <DependentUpon>FrmEmployee.cs</DependentUpon>
+    <EmbeddedResource Include="Views\User\FrmUsers.resx">
+      <DependentUpon>FrmUsers.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
