@@ -1,7 +1,6 @@
 ﻿using DataBase;
 using Interface.Properties;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
@@ -23,9 +22,10 @@ namespace Interface
         private void FrmCustomerService_Load(object sender, EventArgs e)
         {
             dgvHistory.Focus();
+            cbSectors.SelectedIndex = 0;
             cbPage.Text = "1";
             cbRows.Text = "10";
-            dtTimeOfService.Enabled = addTime;            
+            dtTimeOfService.Enabled = addTime;
             cbAddTimeExit.Visible = addTime;
 
             loadEvents();
@@ -48,7 +48,7 @@ namespace Interface
                     {
                         cbSectors.Items.Add(dr["sector"].ToString().Trim());
                     }
-                    cbSectors.SelectedIndex = -1;
+                    cbSectors.SelectedIndex = 0;
                 }
             }
             catch
@@ -84,9 +84,9 @@ namespace Interface
                     return;
                 }
             }
-            
 
-                Service service = new Service();
+
+            Service service = new Service();
             try
             {
                 service.id = serviceId;
@@ -173,9 +173,9 @@ namespace Interface
                     dtDepartureTime.Enabled = true;
                     cbAddTimeExit.Checked = true;
                 }
-                  
+
             }
-            
+
             if (dgvHistory.CurrentCell.ColumnIndex == 1)
             {
                 DialogResult dr = MessageBox.Show($"Deseja mesmo excluir este atendimento?", "CENTRAL DE ATENDIMENTOS", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);

@@ -26,7 +26,7 @@ namespace Interface.Views.Report.Data {
         
         private DtServiceDataTable tableDtService;
         
-        private dtQuantityServicesDataTable tabledtQuantityServices;
+        private DtQuantityDemandsDataTable tableDtQuantityDemands;
         
         private DtQuantityTotalServiceDataTable tableDtQuantityTotalService;
         
@@ -61,8 +61,8 @@ namespace Interface.Views.Report.Data {
                 if ((ds.Tables["DtService"] != null)) {
                     base.Tables.Add(new DtServiceDataTable(ds.Tables["DtService"]));
                 }
-                if ((ds.Tables["dtQuantityServices"] != null)) {
-                    base.Tables.Add(new dtQuantityServicesDataTable(ds.Tables["dtQuantityServices"]));
+                if ((ds.Tables["DtQuantityDemands"] != null)) {
+                    base.Tables.Add(new DtQuantityDemandsDataTable(ds.Tables["DtQuantityDemands"]));
                 }
                 if ((ds.Tables["DtQuantityTotalService"] != null)) {
                     base.Tables.Add(new DtQuantityTotalServiceDataTable(ds.Tables["DtQuantityTotalService"]));
@@ -99,9 +99,9 @@ namespace Interface.Views.Report.Data {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public dtQuantityServicesDataTable dtQuantityServices {
+        public DtQuantityDemandsDataTable DtQuantityDemands {
             get {
-                return this.tabledtQuantityServices;
+                return this.tableDtQuantityDemands;
             }
         }
         
@@ -185,8 +185,8 @@ namespace Interface.Views.Report.Data {
                 if ((ds.Tables["DtService"] != null)) {
                     base.Tables.Add(new DtServiceDataTable(ds.Tables["DtService"]));
                 }
-                if ((ds.Tables["dtQuantityServices"] != null)) {
-                    base.Tables.Add(new dtQuantityServicesDataTable(ds.Tables["dtQuantityServices"]));
+                if ((ds.Tables["DtQuantityDemands"] != null)) {
+                    base.Tables.Add(new DtQuantityDemandsDataTable(ds.Tables["DtQuantityDemands"]));
                 }
                 if ((ds.Tables["DtQuantityTotalService"] != null)) {
                     base.Tables.Add(new DtQuantityTotalServiceDataTable(ds.Tables["DtQuantityTotalService"]));
@@ -230,10 +230,10 @@ namespace Interface.Views.Report.Data {
                     this.tableDtService.InitVars();
                 }
             }
-            this.tabledtQuantityServices = ((dtQuantityServicesDataTable)(base.Tables["dtQuantityServices"]));
+            this.tableDtQuantityDemands = ((DtQuantityDemandsDataTable)(base.Tables["DtQuantityDemands"]));
             if ((initTable == true)) {
-                if ((this.tabledtQuantityServices != null)) {
-                    this.tabledtQuantityServices.InitVars();
+                if ((this.tableDtQuantityDemands != null)) {
+                    this.tableDtQuantityDemands.InitVars();
                 }
             }
             this.tableDtQuantityTotalService = ((DtQuantityTotalServiceDataTable)(base.Tables["DtQuantityTotalService"]));
@@ -254,8 +254,8 @@ namespace Interface.Views.Report.Data {
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableDtService = new DtServiceDataTable();
             base.Tables.Add(this.tableDtService);
-            this.tabledtQuantityServices = new dtQuantityServicesDataTable();
-            base.Tables.Add(this.tabledtQuantityServices);
+            this.tableDtQuantityDemands = new DtQuantityDemandsDataTable();
+            base.Tables.Add(this.tableDtQuantityDemands);
             this.tableDtQuantityTotalService = new DtQuantityTotalServiceDataTable();
             base.Tables.Add(this.tableDtQuantityTotalService);
         }
@@ -268,7 +268,7 @@ namespace Interface.Views.Report.Data {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializedtQuantityServices() {
+        private bool ShouldSerializeDtQuantityDemands() {
             return false;
         }
         
@@ -337,7 +337,7 @@ namespace Interface.Views.Report.Data {
         public delegate void DtServiceRowChangeEventHandler(object sender, DtServiceRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void dtQuantityServicesRowChangeEventHandler(object sender, dtQuantityServicesRowChangeEvent e);
+        public delegate void DtQuantityDemandsRowChangeEventHandler(object sender, DtQuantityDemandsRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void DtQuantityTotalServiceRowChangeEventHandler(object sender, DtQuantityTotalServiceRowChangeEvent e);
@@ -686,16 +686,16 @@ namespace Interface.Views.Report.Data {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class dtQuantityServicesDataTable : global::System.Data.TypedTableBase<dtQuantityServicesRow> {
+        public partial class DtQuantityDemandsDataTable : global::System.Data.TypedTableBase<DtQuantityDemandsRow> {
             
             private global::System.Data.DataColumn columnquantity;
             
-            private global::System.Data.DataColumn columnsector;
+            private global::System.Data.DataColumn columndescription;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public dtQuantityServicesDataTable() {
-                this.TableName = "dtQuantityServices";
+            public DtQuantityDemandsDataTable() {
+                this.TableName = "DtQuantityDemands";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -703,7 +703,7 @@ namespace Interface.Views.Report.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal dtQuantityServicesDataTable(global::System.Data.DataTable table) {
+            internal DtQuantityDemandsDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -720,7 +720,7 @@ namespace Interface.Views.Report.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected dtQuantityServicesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected DtQuantityDemandsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -735,9 +735,9 @@ namespace Interface.Views.Report.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn sectorColumn {
+            public global::System.Data.DataColumn descriptionColumn {
                 get {
-                    return this.columnsector;
+                    return this.columndescription;
                 }
             }
             
@@ -752,46 +752,46 @@ namespace Interface.Views.Report.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public dtQuantityServicesRow this[int index] {
+            public DtQuantityDemandsRow this[int index] {
                 get {
-                    return ((dtQuantityServicesRow)(this.Rows[index]));
+                    return ((DtQuantityDemandsRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event dtQuantityServicesRowChangeEventHandler dtQuantityServicesRowChanging;
+            public event DtQuantityDemandsRowChangeEventHandler DtQuantityDemandsRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event dtQuantityServicesRowChangeEventHandler dtQuantityServicesRowChanged;
+            public event DtQuantityDemandsRowChangeEventHandler DtQuantityDemandsRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event dtQuantityServicesRowChangeEventHandler dtQuantityServicesRowDeleting;
+            public event DtQuantityDemandsRowChangeEventHandler DtQuantityDemandsRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event dtQuantityServicesRowChangeEventHandler dtQuantityServicesRowDeleted;
+            public event DtQuantityDemandsRowChangeEventHandler DtQuantityDemandsRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AdddtQuantityServicesRow(dtQuantityServicesRow row) {
+            public void AddDtQuantityDemandsRow(DtQuantityDemandsRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public dtQuantityServicesRow AdddtQuantityServicesRow(int quantity, string sector) {
-                dtQuantityServicesRow rowdtQuantityServicesRow = ((dtQuantityServicesRow)(this.NewRow()));
+            public DtQuantityDemandsRow AddDtQuantityDemandsRow(int quantity, string description) {
+                DtQuantityDemandsRow rowDtQuantityDemandsRow = ((DtQuantityDemandsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         quantity,
-                        sector};
-                rowdtQuantityServicesRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowdtQuantityServicesRow);
-                return rowdtQuantityServicesRow;
+                        description};
+                rowDtQuantityDemandsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowDtQuantityDemandsRow);
+                return rowDtQuantityDemandsRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                dtQuantityServicesDataTable cln = ((dtQuantityServicesDataTable)(base.Clone()));
+                DtQuantityDemandsDataTable cln = ((DtQuantityDemandsDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -799,14 +799,14 @@ namespace Interface.Views.Report.Data {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new dtQuantityServicesDataTable();
+                return new DtQuantityDemandsDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
                 this.columnquantity = base.Columns["quantity"];
-                this.columnsector = base.Columns["sector"];
+                this.columndescription = base.Columns["description"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -814,36 +814,36 @@ namespace Interface.Views.Report.Data {
             private void InitClass() {
                 this.columnquantity = new global::System.Data.DataColumn("quantity", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnquantity);
-                this.columnsector = new global::System.Data.DataColumn("sector", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsector);
+                this.columndescription = new global::System.Data.DataColumn("description", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndescription);
                 this.columnquantity.ReadOnly = true;
-                this.columnsector.MaxLength = 100;
+                this.columndescription.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public dtQuantityServicesRow NewdtQuantityServicesRow() {
-                return ((dtQuantityServicesRow)(this.NewRow()));
+            public DtQuantityDemandsRow NewDtQuantityDemandsRow() {
+                return ((DtQuantityDemandsRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new dtQuantityServicesRow(builder);
+                return new DtQuantityDemandsRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(dtQuantityServicesRow);
+                return typeof(DtQuantityDemandsRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.dtQuantityServicesRowChanged != null)) {
-                    this.dtQuantityServicesRowChanged(this, new dtQuantityServicesRowChangeEvent(((dtQuantityServicesRow)(e.Row)), e.Action));
+                if ((this.DtQuantityDemandsRowChanged != null)) {
+                    this.DtQuantityDemandsRowChanged(this, new DtQuantityDemandsRowChangeEvent(((DtQuantityDemandsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -851,8 +851,8 @@ namespace Interface.Views.Report.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.dtQuantityServicesRowChanging != null)) {
-                    this.dtQuantityServicesRowChanging(this, new dtQuantityServicesRowChangeEvent(((dtQuantityServicesRow)(e.Row)), e.Action));
+                if ((this.DtQuantityDemandsRowChanging != null)) {
+                    this.DtQuantityDemandsRowChanging(this, new DtQuantityDemandsRowChangeEvent(((DtQuantityDemandsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -860,8 +860,8 @@ namespace Interface.Views.Report.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.dtQuantityServicesRowDeleted != null)) {
-                    this.dtQuantityServicesRowDeleted(this, new dtQuantityServicesRowChangeEvent(((dtQuantityServicesRow)(e.Row)), e.Action));
+                if ((this.DtQuantityDemandsRowDeleted != null)) {
+                    this.DtQuantityDemandsRowDeleted(this, new DtQuantityDemandsRowChangeEvent(((DtQuantityDemandsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -869,14 +869,14 @@ namespace Interface.Views.Report.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.dtQuantityServicesRowDeleting != null)) {
-                    this.dtQuantityServicesRowDeleting(this, new dtQuantityServicesRowChangeEvent(((dtQuantityServicesRow)(e.Row)), e.Action));
+                if ((this.DtQuantityDemandsRowDeleting != null)) {
+                    this.DtQuantityDemandsRowDeleting(this, new DtQuantityDemandsRowChangeEvent(((DtQuantityDemandsRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemovedtQuantityServicesRow(dtQuantityServicesRow row) {
+            public void RemoveDtQuantityDemandsRow(DtQuantityDemandsRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -903,7 +903,7 @@ namespace Interface.Views.Report.Data {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "dtQuantityServicesDataTable";
+                attribute2.FixedValue = "DtQuantityDemandsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1406,15 +1406,15 @@ namespace Interface.Views.Report.Data {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class dtQuantityServicesRow : global::System.Data.DataRow {
+        public partial class DtQuantityDemandsRow : global::System.Data.DataRow {
             
-            private dtQuantityServicesDataTable tabledtQuantityServices;
+            private DtQuantityDemandsDataTable tableDtQuantityDemands;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal dtQuantityServicesRow(global::System.Data.DataRowBuilder rb) : 
+            internal DtQuantityDemandsRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tabledtQuantityServices = ((dtQuantityServicesDataTable)(this.Table));
+                this.tableDtQuantityDemands = ((DtQuantityDemandsDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1422,55 +1422,55 @@ namespace Interface.Views.Report.Data {
             public int quantity {
                 get {
                     try {
-                        return ((int)(this[this.tabledtQuantityServices.quantityColumn]));
+                        return ((int)(this[this.tableDtQuantityDemands.quantityColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'quantity\' na tabela \'dtQuantityServices\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'quantity\' na tabela \'DtQuantityDemands\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledtQuantityServices.quantityColumn] = value;
+                    this[this.tableDtQuantityDemands.quantityColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string sector {
+            public string description {
                 get {
                     try {
-                        return ((string)(this[this.tabledtQuantityServices.sectorColumn]));
+                        return ((string)(this[this.tableDtQuantityDemands.descriptionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("O valor da coluna \'sector\' na tabela \'dtQuantityServices\' é DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("O valor da coluna \'description\' na tabela \'DtQuantityDemands\' é DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledtQuantityServices.sectorColumn] = value;
+                    this[this.tableDtQuantityDemands.descriptionColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsquantityNull() {
-                return this.IsNull(this.tabledtQuantityServices.quantityColumn);
+                return this.IsNull(this.tableDtQuantityDemands.quantityColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetquantityNull() {
-                this[this.tabledtQuantityServices.quantityColumn] = global::System.Convert.DBNull;
+                this[this.tableDtQuantityDemands.quantityColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IssectorNull() {
-                return this.IsNull(this.tabledtQuantityServices.sectorColumn);
+            public bool IsdescriptionNull() {
+                return this.IsNull(this.tableDtQuantityDemands.descriptionColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetsectorNull() {
-                this[this.tabledtQuantityServices.sectorColumn] = global::System.Convert.DBNull;
+            public void SetdescriptionNull() {
+                this[this.tableDtQuantityDemands.descriptionColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1555,22 +1555,22 @@ namespace Interface.Views.Report.Data {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class dtQuantityServicesRowChangeEvent : global::System.EventArgs {
+        public class DtQuantityDemandsRowChangeEvent : global::System.EventArgs {
             
-            private dtQuantityServicesRow eventRow;
+            private DtQuantityDemandsRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public dtQuantityServicesRowChangeEvent(dtQuantityServicesRow row, global::System.Data.DataRowAction action) {
+            public DtQuantityDemandsRowChangeEvent(DtQuantityDemandsRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public dtQuantityServicesRow Row {
+            public DtQuantityDemandsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -1822,7 +1822,7 @@ ORDER BY CONVERT(DATE, Services.date_service, 103) DESC, CONVERT(Time, Services.
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class dtQuantityServicesTableAdapter : global::System.ComponentModel.Component {
+    public partial class DtQuantityDemandsTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -1836,7 +1836,7 @@ ORDER BY CONVERT(DATE, Services.date_service, 103) DESC, CONVERT(Time, Services.
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public dtQuantityServicesTableAdapter() {
+        public DtQuantityDemandsTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -1933,9 +1933,9 @@ ORDER BY CONVERT(DATE, Services.date_service, 103) DESC, CONVERT(Time, Services.
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "dtQuantityServices";
+            tableMapping.DataSetTable = "DtQuantityDemands";
             tableMapping.ColumnMappings.Add("quantity", "quantity");
-            tableMapping.ColumnMappings.Add("sector", "sector");
+            tableMapping.ColumnMappings.Add("description", "description");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1952,11 +1952,11 @@ ORDER BY CONVERT(DATE, Services.date_service, 103) DESC, CONVERT(Time, Services.
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        COUNT(Services.sector) AS quantity, Services.sector
+            this._commandCollection[0].CommandText = @"SELECT        COUNT(Services.description) AS quantity, Services.description
 FROM            Services INNER JOIN
                          Users ON Users.id = Services.user_id
 WHERE        (CONVERT(VARCHAR, Services.date_service, 103) LIKE @year)
-GROUP BY Services.sector
+GROUP BY Services.description
 ORDER BY quantity DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@year", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1966,7 +1966,7 @@ ORDER BY quantity DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DsService.dtQuantityServicesDataTable dataTable, string year) {
+        public virtual int Fill(DsService.DtQuantityDemandsDataTable dataTable, string year) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((year == null)) {
                 throw new global::System.ArgumentNullException("year");
@@ -1985,7 +1985,7 @@ ORDER BY quantity DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DsService.dtQuantityServicesDataTable GetData(string year) {
+        public virtual DsService.DtQuantityDemandsDataTable GetData(string year) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((year == null)) {
                 throw new global::System.ArgumentNullException("year");
@@ -1993,7 +1993,7 @@ ORDER BY quantity DESC";
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(year));
             }
-            DsService.dtQuantityServicesDataTable dataTable = new DsService.dtQuantityServicesDataTable();
+            DsService.DtQuantityDemandsDataTable dataTable = new DsService.DtQuantityDemandsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2137,8 +2137,8 @@ ORDER BY quantity DESC";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        COUNT(id) AS quantity\r\nFROM            Services\r\nWHERE        (CONV" +
-                "ERT(VARCHAR, date_service, 103) LIKE @DATE)";
+            this._commandCollection[0].CommandText = "SELECT        COUNT(id) AS quantity\nFROM            Services\nWHERE        (CONVER" +
+                "T(VARCHAR, date_service, 103) LIKE @DATE)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DATE", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }

@@ -38,16 +38,16 @@ namespace Interface
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReportService));
             this.dtServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsService = new Interface.Views.Report.Data.DsService();
-            this.dtQuantityServicesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dtQuantityTotalServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dtQuantityDemandsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.dtServiceTableAdapter = new Interface.Views.Report.Data.DsServiceTableAdapters.DtServiceTableAdapter();
-            this.dtQuantityServicesTableAdapter = new Interface.Views.Report.Data.DsServiceTableAdapters.dtQuantityServicesTableAdapter();
-            this.dtQuantityTotalServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dtQuantityTotalServiceTableAdapter = new Interface.Views.Report.Data.DsServiceTableAdapters.DtQuantityTotalServiceTableAdapter();
+            this.dtQuantityDemandsTableAdapter = new Interface.Views.Report.Data.DsServiceTableAdapters.DtQuantityDemandsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dtServiceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsService)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtQuantityServicesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtQuantityTotalServiceBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtQuantityDemandsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dtServiceBindingSource
@@ -60,20 +60,25 @@ namespace Interface
             this.dsService.DataSetName = "DsService";
             this.dsService.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // dtQuantityServicesBindingSource
+            // dtQuantityTotalServiceBindingSource
             // 
-            this.dtQuantityServicesBindingSource.DataMember = "dtQuantityServices";
-            this.dtQuantityServicesBindingSource.DataSource = this.dsService;
+            this.dtQuantityTotalServiceBindingSource.DataMember = "DtQuantityTotalService";
+            this.dtQuantityTotalServiceBindingSource.DataSource = this.dsService;
+            // 
+            // dtQuantityDemandsBindingSource
+            // 
+            this.dtQuantityDemandsBindingSource.DataMember = "DtQuantityDemands";
+            this.dtQuantityDemandsBindingSource.DataSource = this.dsService;
             // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             reportDataSource1.Name = "dsService";
             reportDataSource1.Value = this.dtServiceBindingSource;
-            reportDataSource2.Name = "dsQuantityServices";
-            reportDataSource2.Value = this.dtQuantityServicesBindingSource;
-            reportDataSource3.Name = "dsQuantityTotalServices";
-            reportDataSource3.Value = this.dtQuantityTotalServiceBindingSource;
+            reportDataSource2.Name = "dsQuantityTotalServices";
+            reportDataSource2.Value = this.dtQuantityTotalServiceBindingSource;
+            reportDataSource3.Name = "DsQuantityDemands";
+            reportDataSource3.Value = this.dtQuantityDemandsBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
@@ -88,18 +93,13 @@ namespace Interface
             // 
             this.dtServiceTableAdapter.ClearBeforeFill = true;
             // 
-            // dtQuantityServicesTableAdapter
-            // 
-            this.dtQuantityServicesTableAdapter.ClearBeforeFill = true;
-            // 
-            // dtQuantityTotalServiceBindingSource
-            // 
-            this.dtQuantityTotalServiceBindingSource.DataMember = "DtQuantityTotalService";
-            this.dtQuantityTotalServiceBindingSource.DataSource = this.dsService;
-            // 
             // dtQuantityTotalServiceTableAdapter
             // 
             this.dtQuantityTotalServiceTableAdapter.ClearBeforeFill = true;
+            // 
+            // dtQuantityDemandsTableAdapter
+            // 
+            this.dtQuantityDemandsTableAdapter.ClearBeforeFill = true;
             // 
             // FrmReportService
             // 
@@ -117,8 +117,8 @@ namespace Interface
             this.Load += new System.EventHandler(this.FrmReportService_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtServiceBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsService)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtQuantityServicesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtQuantityTotalServiceBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtQuantityDemandsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -128,10 +128,10 @@ namespace Interface
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource dtServiceBindingSource;
         private DsService dsService;
-        private System.Windows.Forms.BindingSource dtQuantityServicesBindingSource;
         private DtServiceTableAdapter dtServiceTableAdapter;
-        private dtQuantityServicesTableAdapter dtQuantityServicesTableAdapter;
         private System.Windows.Forms.BindingSource dtQuantityTotalServiceBindingSource;
         private DtQuantityTotalServiceTableAdapter dtQuantityTotalServiceTableAdapter;
+        private System.Windows.Forms.BindingSource dtQuantityDemandsBindingSource;
+        private DtQuantityDemandsTableAdapter dtQuantityDemandsTableAdapter;
     }
 }

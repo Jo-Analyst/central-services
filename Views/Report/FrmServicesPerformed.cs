@@ -1,15 +1,11 @@
-﻿using Interface.Properties;
-using Interface.Views.Report;
+﻿using DataBase;
+using Interface.Properties;
 using Interface.Views.Report.Data;
 using Interface.Views.Report.Data.DsServiceTableAdapters;
-using DataBase;
 using Microsoft.Reporting.WinForms;
-using Microsoft.ReportingServices.Interfaces;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Interface
 {
@@ -170,7 +166,7 @@ namespace Interface
         {
             try
             {
-               isPrintDirect =  bool.Parse(Settings.Default["print_directory_direct"].ToString());
+                isPrintDirect = bool.Parse(Settings.Default["print_directory_direct"].ToString());
 
                 if (isPrintDirect)
                 {
@@ -178,9 +174,9 @@ namespace Interface
                 }
                 else
                 {
-                new FrmReportService(cbMonth.SelectedIndex == 0 ? $"%{cbYear.Text}%" : $"%{GetSelectedMonthDescription()}/{cbYear.Text}%").ShowDialog();
+                    new FrmReportService(cbMonth.SelectedIndex == 0 ? $"%{cbYear.Text}%" : $"%{GetSelectedMonthDescription()}/{cbYear.Text}%").ShowDialog();
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -191,19 +187,19 @@ namespace Interface
         private void PrintReport()
         {
             DtServiceTableAdapter dtServiceTableAdapter = new DtServiceTableAdapter();
-            dtQuantityServicesTableAdapter dtQuantityServicesTableAdapter = new dtQuantityServicesTableAdapter();
+            DtQuantityDemandsTableAdapter dtQuantityDemandsTableAdapter = new DtQuantityDemandsTableAdapter();
             DtQuantityTotalServiceTableAdapter dtQuantityTotalServiceTableAdapter = new DtQuantityTotalServiceTableAdapter();
             DsService dsService = new DsService();
 
             dtServiceTableAdapter.Fill(dsService.DtService, cbMonth.SelectedIndex == 0 ? $"%{cbYear.Text}%" : $"%{GetSelectedMonthDescription()}/{cbYear.Text}%");
-            dtQuantityServicesTableAdapter.Fill(dsService.dtQuantityServices, cbMonth.SelectedIndex == 0 ? $"%{cbYear.Text}%" : $"%{GetSelectedMonthDescription()}/{cbYear.Text}%");
+            dtQuantityDemandsTableAdapter.Fill(dsService.DtQuantityDemands, cbMonth.SelectedIndex == 0 ? $"%{cbYear.Text}%" : $"%{GetSelectedMonthDescription()}/{cbYear.Text}%");
             dtQuantityTotalServiceTableAdapter.Fill(dsService.DtQuantityTotalService, cbMonth.SelectedIndex == 0 ? $"%{cbYear.Text}%" : $"%{GetSelectedMonthDescription()}/{cbYear.Text}%");
 
             LocalReport localReport = new LocalReport();
             localReport.ReportEmbeddedResource = "Interface.Views.Report.Relatório do Atendimento Diário.rdlc";
             localReport.DataSources.Clear();
             localReport.DataSources.Add(new ReportDataSource("dsService", (DataTable)dsService.DtService));
-            localReport.DataSources.Add(new ReportDataSource("dsQuantityServices", (DataTable)dsService.dtQuantityServices));
+            localReport.DataSources.Add(new ReportDataSource("DsQuantityDemands", (DataTable)dsService.DtQuantityDemands));
             localReport.DataSources.Add(new ReportDataSource("dsQuantityTotalServices", (DataTable)dsService.DtQuantityTotalService));
             localReport.PrintToPrinter();
         }

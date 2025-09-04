@@ -64,7 +64,7 @@ namespace DataBase
                 throw;
             }
         }
-       
+
         static public DataTable FindByYearAndMonth(int year, string month, int page = 1, double quantRows = 1)
         {
             try
@@ -84,8 +84,8 @@ namespace DataBase
                 throw;
             }
         }
-        
-        static public DataTable FindByYear(int year , int page = 1, double quantRows = 1)
+
+        static public DataTable FindByYear(int year, int page = 1, double quantRows = 1)
         {
             try
             {
@@ -104,7 +104,7 @@ namespace DataBase
                 throw;
             }
         }
-       
+
         static public DataTable GetSectors()
         {
             try
