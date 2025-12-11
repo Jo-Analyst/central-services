@@ -34,7 +34,8 @@ namespace Interface
             }
 
             cbYear.SelectedIndex = 0;
-            cbMonth.SelectedIndex = 0;
+            cbMonth.SelectedIndex = DateTime.Now.Month;
+            month = cbMonth.SelectedIndex.ToString();
             cbPage.Text = "1";
             cbRows.Text = "10";
             LoadEvents();
